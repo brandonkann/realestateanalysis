@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <style>
+        .center {
+            text-align: center;
+        }
+        * {
+        box-sizing: border-box;
+        }
+        /* Create two equal columns that floats next to each other */
+        .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+        height: 1300px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+        content: "";
+        display: table;
+        clear: both;
+        }
+    </style>
+  
+  </head>
+  <body>
+    <h1>Analyzing Real Estate Properties Calculator</h1>
+    <div class = "center">
+        <h1>Enter Property Details Here:</h1>
+        <div class="row">
+            <div class="column" style="background-color:#aaa;">
+        <h3>Purchase Details</h3>
+        <p>Purchase Price</p>
+        <input placeholder="Purchase Price"/>
+        <p>Purchase Closing Cost</p>
+        <input placeholder="Purchase Closing Cost"/>
+        <p>Pre-Rent Holding Cost</p>
+        <input placeholder="Pre-Rent Holding Cost"/>
+        <p>Estimated Repairs</p>
+        <input placeholder="Estimated Repairs"/>
+        <p></p>
+
+        <h3>Financing Details</h3>
+        <p>Down Payment</p>
+        <input placeholder = "Downpayment"/>
+        <p>Loan</p>
+        <input placeholder="Loan"/>
+        <p>Total Monthly Mortgage payment(get this amount from a Mortgage Payment Calculator)</p>
+        <input placeholder = "Total Monthly Mortgage Payment"/>
+        <p></p>
+
+        <h3>Total Property Income</h3>
+        <p>Total Monthly Rent Income</p>
+        <input placeholder = "Rent Income"/>
+        </div>
+
+        <div class="column" style="background-color:#bbb;">
+        <h3>Total Montly Property Expenses</h3>
+        <p>Mortgage</p>
+        <input placeholder = "Mortgage"/>
+        <p>Taxes</p>
+        <input placeholder = "Taxes"/>
+        <p>Insurance</p>
+        <input placeholder = "Insurance"/>
+        <p>Flood Insurance</p>
+        <input placeholder = "Flood Insurance"/>
+        <p>Vacancy</p>
+        <input placeholder = "Vacancy"/>
+        <p>Repairs</p>
+        <input placeholder = "Repairs"/>
+        <p>Capital Expenditures</p>
+        <input placeholder = "Capital Expenditures"/>
+        <p>Water</p>
+        <input placeholder = "Water"/>
+        <p>Sewer</p>
+        <input placeholder = "Sewer"/>
+        <p>Garbage</p>
+        <input placeholder = "Garbage"/>
+        <p>Gas</p>
+        <input placeholder = "Gas"/>
+        <p>Electricity</p>
+        <input placeholder = "Electricity"/>
+        <p>Snow Removal</p>
+        <input placeholder = "Snow Removal"/>
+        <p>Lawn Care</p>
+        <input placeholder = "Lawn Care"/>
+        <p>Property Management</p>
+        <input placeholder = "Property Management"/>
+        <p>other</p>
+        <input placeholder = "Other"/>
+        <p>Mortgage</p>
+        <input placeholder = "Mortgage"/>
+        <p></p>
+        </div>
+</div>
+<p></p>
+        <button>Calculate</button>
+        
+    </div>
+
+    <div class = "left">
+        <h1>Total Cost of Project</h1>
+        <p>Total Cost of the entire Project</p>
+        <p>Formula: Purchase Closing cost + Pre-Rent Holding Cost + Estimated Repairs = Total Cost of Project</p>
+
+        <h1>Total Cash Needed</h1>
+        <p>Total amount of cash needed to make this deal a reality</p>
+        <p>Formula: Total Project Cost - Loan Amount = Total Cash Needed </p>
+
+        <h1>50% Rule</h1>
+        <p>This rule determines whether this property will generate positive or negative cashflow</p>
+        <p>Formula: CashFlow = (Total Income x 0.5) - Mortgage P&I</p>
+        <p id = '50rule'></p>
+
+
+        <h1>2% Rule</h1>
+        <p>This rule determines whether the property is a pass/fail purchase</p>
+        <p>Formula: X = Monthly Rental Income / Purchase Price</p>
+        <p>If X > 2%, then it passes</p>
+        <p>If X < 2%, then it fails</p>
+        <p id = '2rule'></p>
+
+
+        <h1>Cash-on-Cash Return on Investment</h1>
+        <p>Simple metric that tells us what kind of yield our money is making us based only on the cash flow</p>
+        <p>Formula: CoCROI = Total Annual Cash Flow / Total Investment </p>
+        <p id = 'CoCROI'></p>
+
+
+        <h1>Selling Profit</h1>
+        <p>Total amount of profits after taking in account selling expenses e.c.t</p>
+        <p>Formula: Sale Price - Sale Expenses - Loan payoff - total capital Invested</p>
+        <p id = "sellingProfit"></p>
+
+
+
+        <h1>Appreciation Table</h1>
+        <p>This table will show how much your property is worth after holding it for N number of years</p>
+        <!-- TODO -->
+
+
+        <h1>Annual ROI</h1>
+        <p>Total ROI after holding property for N number of years</p>
+        <p>Formula: (Total Profit / Total Invested Capital) / Time(in years)</p>
+        <p id = "annualROI"></p>
+</div>
+	<script></script>
+  </body>
+</html>
