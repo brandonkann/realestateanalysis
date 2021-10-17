@@ -34,85 +34,105 @@
             <div class="column" style="background-color:#aaa;">
         <h3>Purchase Details</h3>
         <p>Purchase Price</p>
-        <input placeholder="Purchase Price"/>
+        <input id = "purchasePrice" placeholder="Purchase Price"/>
         <p>Purchase Closing Cost</p>
-        <input placeholder="Purchase Closing Cost"/>
+        <input id = "purchaseClosingCost" placeholder="Purchase Closing Cost"/>
         <p>Pre-Rent Holding Cost</p>
-        <input placeholder="Pre-Rent Holding Cost"/>
+        <input id = "preRentHoldingCost" placeholder="Pre-Rent Holding Cost"/>
         <p>Estimated Repairs</p>
-        <input placeholder="Estimated Repairs"/>
+        <input id = "estimatedRepair" placeholder="Estimated Repairs"/>
         <p></p>
 
         <h3>Financing Details</h3>
         <p>Down Payment</p>
-        <input placeholder = "Downpayment"/>
+        <input id = "downPayment" placeholder = "Downpayment"/>
         <p>Loan</p>
-        <input placeholder="Loan"/>
+        <input id = "loan" placeholder="Loan"/>
         <p>Total Monthly Mortgage payment(get this amount from a Mortgage Payment Calculator)</p>
-        <input placeholder = "Total Monthly Mortgage Payment"/>
+        <input id = "monthlyMortgage" placeholder = "Total Monthly Mortgage Payment"/>
         <p></p>
 
         <h3>Total Property Income</h3>
         <p>Total Monthly Rent Income</p>
-        <input placeholder = "Rent Income"/>
+        <input id = "propertyIncome" placeholder = "Rent Income"/>
+
+
+        <h3>Sellling your property</h3>
+        <p>Sale Price</p>
+        <input id = "salePrice" placeholder = "Sale Price"/>
+        <p>Sales Expenses</p>
+        <input id = "saleExpense" placeholder="Sales Expense"/>
+        <p>Loan Payoff</p>
+        <input id = "loanPayoff" placeholder = "Loan Payoff"/>
+        <p>Total Invested Capital</p>
+        <input id = "TIC" placeholder = "Total Invested Capital"/>
+        <p></p>
+
         </div>
+        
 
         <div class="column" style="background-color:#bbb;">
         <h3>Total Montly Property Expenses</h3>
         <p>Mortgage</p>
-        <input placeholder = "Mortgage"/>
+        <input id = "mortgage" placeholder = "Mortgage"/>
         <p>Taxes</p>
-        <input placeholder = "Taxes"/>
+        <input id = "taxes" placeholder = "Taxes"/>
         <p>Insurance</p>
-        <input placeholder = "Insurance"/>
+        <input id = "insurance" placeholder = "Insurance"/>
         <p>Flood Insurance</p>
-        <input placeholder = "Flood Insurance"/>
+        <input id = "floodInsurance" placeholder = "Flood Insurance"/>
         <p>Vacancy</p>
-        <input placeholder = "Vacancy"/>
+        <input id = "vacancy" placeholder = "Vacancy"/>
         <p>Repairs</p>
-        <input placeholder = "Repairs"/>
+        <input id = "repairs" placeholder = "Repairs"/>
         <p>Capital Expenditures</p>
-        <input placeholder = "Capital Expenditures"/>
+        <input id = "capitalExpenditures" placeholder = "Capital Expenditures"/>
         <p>Water</p>
-        <input placeholder = "Water"/>
+        <input id = "water" placeholder = "Water"/>
         <p>Sewer</p>
-        <input placeholder = "Sewer"/>
+        <input id = "sewer" placeholder = "Sewer"/>
         <p>Garbage</p>
-        <input placeholder = "Garbage"/>
+        <input id = "garbage" placeholder = "Garbage"/>
         <p>Gas</p>
-        <input placeholder = "Gas"/>
+        <input id = "gas" placeholder = "Gas"/>
         <p>Electricity</p>
-        <input placeholder = "Electricity"/>
+        <input id = "electricity"placeholder = "Electricity"/>
         <p>Snow Removal</p>
-        <input placeholder = "Snow Removal"/>
+        <input id = "snowRemoval" placeholder = "Snow Removal"/>
         <p>Lawn Care</p>
-        <input placeholder = "Lawn Care"/>
+        <input id = "lawnCare" placeholder = "Lawn Care"/>
         <p>Property Management</p>
-        <input placeholder = "Property Management"/>
+        <input id = "propertyManagement"placeholder = "Property Management"/>
         <p>other</p>
-        <input placeholder = "Other"/>
-        <p>Mortgage</p>
-        <input placeholder = "Mortgage"/>
-        <p></p>
+        <input id = "other" placeholder = "Other"/>
         </div>
 </div>
 <p></p>
-        <button>Calculate</button>
+        <button onclick = "calculate()">Calculate</button>
         
     </div>
 
     <div class = "left">
+
+        <h1>Total Cost of Expenses</h1>
+        <p>Total cost of all Expenses per month</p>
+        <p>Sum of all Expenses</p>
+        <h3 id = "totalExpense"></h3>
+
+
         <h1>Total Cost of Project</h1>
         <p>Total Cost of the entire Project</p>
         <p>Formula: Purchase Closing cost + Pre-Rent Holding Cost + Estimated Repairs = Total Cost of Project</p>
+        <h3 id = "totalCostOfProject"></h3>
 
         <h1>Total Cash Needed</h1>
         <p>Total amount of cash needed to make this deal a reality</p>
         <p>Formula: Total Project Cost - Loan Amount = Total Cash Needed </p>
+        <h3 id = "totalCashNeeded"></h3>
 
         <h1>50% Rule</h1>
-        <p>This rule determines whether this property will generate positive or negative cashflow</p>
-        <p>Formula: CashFlow = (Total Income x 0.5) - Mortgage P&I</p>
+        <p>This rule determines whether this property will generate positive or negative cashflow per month This is also with the assumption you will pay all expenses</p>
+        <p>Formula: CashFlow = (Total Income per month x 0.5) - Mortgage P&I per month</p>
         <p id = '50rule'></p>
 
 
@@ -147,6 +167,91 @@
         <p>Formula: (Total Profit / Total Invested Capital) / Time(in years)</p>
         <p id = "annualROI"></p>
 </div>
-	<script></script>
+	<script>
+
+function calculate() {
+var purchasePrice = document.getElementById('purchasePrice').value; 
+var purchaseClosingCost = document.getElementById('purchaseClosingCost').value; 
+var preRentHoldingCost = document.getElementById('preRentHoldingCost').value; 
+var estimatedRepair = document.getElementById('estimatedRepair').value; 
+var downPayment = document.getElementById('downPayment').value; 
+var loan = document.getElementById('loan').value; 
+var monthlyMortgage = document.getElementById('monthlyMortgage').value; 
+var propertyIncome = document.getElementById('propertyIncome').value; 
+
+
+var salePrice = document.getElementById('salePrice').value; 
+var saleExpense = document.getElementById('saleExpense').value; 
+var loanPayoff = document.getElementById('loanPayoff').value; 
+var TIC = document.getElementById('TIC').value; 
+
+var mortgage = document.getElementById('mortgage').value; 
+var taxes = document.getElementById('taxes').value; 
+var insurance = document.getElementById('insurance').value; 
+var floodInsurance = document.getElementById('floodInsurance').value; 
+var vacancy = document.getElementById('vacancy').value; 
+var repairs = document.getElementById('repairs').value; 
+var capitalExpenditures = document.getElementById('capitalExpenditures').value; 
+var water = document.getElementById('water').value; 
+var sewer = document.getElementById('sewer').value; 
+var garbage = document.getElementById('garbage').value; 
+var gas = document.getElementById('gas').value; 
+var electricity = document.getElementById('electricity').value; 
+var snowRemoval = document.getElementById('snowRemoval').value; 
+var lawnCare = document.getElementById('lawnCare').value; 
+var propertyManagement = document.getElementById('propertyManagement').value; 
+var other = document.getElementById('other').value; 
+
+//Calculations:
+// Total expense:
+var totalExpense = (Number(mortgage) + Number(taxes) + Number(insurance) + Number(floodInsurance) + Number(vacancy) + Number(repairs) + Number(capitalExpenditures) + Number(water) + Number(sewer) + Number(garbage) + Number(gas) + Number(electricity) + Number(snowRemoval) + Number(lawnCare) + Number(propertyManagement) + 
+Number(other))
+document.getElementById('totalExpense').innerHTML = `$${totalExpense}`
+// Total cost of project: 
+var totalCostOfProject = Number(purchasePrice) + Number(purchaseClosingCost) + Number(preRentHoldingCost) + Number(estimatedRepair)
+document.getElementById('totalCostOfProject').innerHTML = `$${totalCostOfProject}`
+// Total Cash Needed:
+var totalCashNeeded = Number(totalCostOfProject) - Number(loan)
+document.getElementById('totalCashNeeded').innerHTML = `$${totalCashNeeded}`
+// 50% rule: 
+var cashFlowRule = (Number(propertyIncome) * 0.5) - Number(monthlyMortgage)
+document.getElementById('50rule').innerHTML = `$${cashFlowRule}`
+// 2% rule:
+var twoRule = Number(propertyIncome) / Number(purchasePrice)
+var percentTwoRule = (twoRule * 100).toFixed(2)
+document.getElementById('2rule').innerHTML = `${percentTwoRule}%`
+//Cash on Cash ROI 
+var monthlyCashFlow = Number(propertyIncome) - Number(totalExpense)
+var annualCashFlow =  Number(monthlyCashFlow) * 12
+console.log(annualCashFlow)
+var totalInvestedCapital = Number(totalCostOfProject) - Number(loan)
+console.log(totalInvestedCapital)
+var CocROI = Number(annualCashFlow) / Number(totalInvestedCapital) 
+document.getElementById('CoCROI').innerHTML = `${CocROI}%`
+// Selling Profit 
+var sellingProfit = Number(salePrice) - Number(saleExpense) - Number(loanPayoff) - Number(TIC)
+document.getElementById('sellingProfit').innerHTML = `${sellingProfit}%`
+// Appreciation Table
+//TODO
+
+// Annual ROI 
+// TODO
+
+
+
+
+
+
+
+
+alert(`Here are some of the details of this deal: Monthly Cash Flow: ${monthlyCashFlow}Annual Cash Flow: ${annualCashFlow} 50% Rule: ${cashFlowRule} 2% Rule: ${percentTwoRule}`)
+console.log("Total Expenses is $" + totalExpense)
+
+}
+
+
+  </script>
+
+  
   </body>
 </html>
